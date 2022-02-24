@@ -5,6 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: JhalakGupta/auto-approve-action@v1
+    - uses: JhalakGupta/Actions@v1
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
