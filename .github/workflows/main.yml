@@ -11,6 +11,8 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         checkName: say-hello-workflow
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
+    - name: Do something with a passing build
     - uses: JhalakGupta/Actions@v5.1.2
+      if: steps.wait-for-build.outputs.conclusion == 'success'
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
