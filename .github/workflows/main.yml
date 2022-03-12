@@ -13,7 +13,7 @@ jobs:
 
     - name: Auto approve on check pass
 #       if: steps.wait-for-build.outputs.conclusion == 'success'
-      uses: JhalakGupta/Actions@v6.1.0
+      uses: JhalakGupta/Actions@v6.2.0
       with:
        github-token: "${{ secrets.GITHUB_TOKEN }}"
        ref: ${{ github.event.pull_request.head.sha || github.sha }}
