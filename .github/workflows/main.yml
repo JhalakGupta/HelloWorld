@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: lewagon/wait-on-check-action@v1.0.0
+    - uses: fountainhead/action-wait-for-check@v1.0.0
       with:
        ref: master
        check-name: test
