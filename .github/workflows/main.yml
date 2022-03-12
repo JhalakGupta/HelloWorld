@@ -9,7 +9,7 @@ jobs:
       id: wait-for-build
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: build
+        checkName: say-hello-workflow
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
     - uses: JhalakGupta/Actions@v5.1.2
       with:
