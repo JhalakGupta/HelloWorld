@@ -5,14 +5,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: fountainhead/action-wait-for-check@v1.0.0
-      id: wait-for-build
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: say-hello-workflow
-        ref: ${{ github.event.pull_request.head.sha || github.sha }}
-    - name: Do something with the passing build
-      if: steps.wait-for-build.outputs.conclusion == 'success'
-      uses: JhalakGupta/Actions@v5.1.2
+#     - uses: fountainhead/action-wait-for-check@v1.0.0
+#       id: wait-for-build
+#       with:
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         checkName: say-hello-workflow
+
+    - name: Auto approve on check pass
+#       if: steps.wait-for-build.outputs.conclusion == 'success'
+      uses: JhalakGupta/Actions@v6.1.0
       with:
        github-token: "${{ secrets.GITHUB_TOKEN }}"
+       ref: ${{ github.event.pull_request.head.sha || github.sha }}
+       checkName: say-hello-workflow
