@@ -5,12 +5,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: lewagon/wait-on-check-action@v1.0.0
+#     - uses: fountainhead/action-wait-for-check@v1.0.0
+#       id: wait-for-build
+#       with:
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         checkName: say-hello-workflow
+
+    - name: Auto approve on check pass
+#       if: steps.wait-for-build.outputs.conclusion == 'success'
+      uses: JhalakGupta/Actions@v6.2.1
       with:
-       ref: master
-       check-name: test
-       repo-token: ${{ secrets.GITHUB_TOKEN }}
-       wait-interval: 30
-    - uses: JhalakGupta/Actions@v5.1.2
-      with:
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
+       github-token: "${{ secrets.GITHUB_TOKEN }}"
+       ref: ${{ github.event.pull_request.head.sha || github.sha }}
+       checkName: say-hello-workflow
