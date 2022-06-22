@@ -2,7 +2,7 @@ name: Pull Request Stats
 
 on:
   pull_request:
-    types: [open]
+    types: [ assigned, opened, synchronize, reopened ]
 
 jobs:
   stats:
