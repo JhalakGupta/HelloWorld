@@ -10,3 +10,8 @@ jobs:
     steps:
       - name: Run pull request stats
         uses: flowwer-dev/pull-request-stats@master
+        
+      - uses: 8BitJonny/gh-get-current-pr@2.1.0
+        id: PR
+
+      - run: echo "Your PR number is ${{ steps.PR.outputs.number }} and its JSON is ${{ steps.PR.outputs.pr }}"
